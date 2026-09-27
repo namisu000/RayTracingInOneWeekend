@@ -1,0 +1,22 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.VC.db
+*.VC.opendb
+ipch/
+
+# 빌드 산출물
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Oo]bj/
+[Bb]in/
+*.obj
+*.pdb
+*.ilk
+*.exe
+
+# 렌더링 결과 (원본 PPM은 제외, PNG만 올림)
+*.ppm
