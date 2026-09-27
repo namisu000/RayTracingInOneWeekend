@@ -11,6 +11,7 @@ int main()
 	cout << "P3\n" << image_width << " " << image_height << "\n255\n";
 
 	for (int i = 0; i < image_width; i++) {
+		clog << "\rScanlines remaining: " << (image_width - i) << ' ' << flush;
 		for (int j = 0; j < image_height; j++)
 		{
 			auto r = double(i) / (image_width - 1);
@@ -23,5 +24,7 @@ int main()
 
 			cout << ir << " " << ig << " " << ib << "\n";
 		}
+
+		clog << "\rDone.\n";
 	}
 }
