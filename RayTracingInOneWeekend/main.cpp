@@ -50,10 +50,9 @@ int main()
 	//render
 	cout << "P3\n" << image_width << " " << image_height << "\n255\n";
 
-	for (int i = 0; i < image_width; i++) {
-		clog << "\rScanlines remaining: " << (image_width - i) << ' ' << flush;
-		for (int j = 0; j < image_height; j++)
-		{
+	for (int j = 0; j < image_height; j++) {
+		clog << "\rScanlines remaining: " << (image_height - j) << ' ' << flush;
+		for (int i = 0; i < image_width; i++) {
 			auto pixel_center = pixel00_loc + (i * pixel_delta_u) + (j * pixel_delta_v);
 			auto ray_direction = pixel_center - camera_center;
 			ray r(camera_center, ray_direction);
@@ -61,7 +60,7 @@ int main()
 			color pixel_color = ray_color(r);
 			write_color(cout, pixel_color);
 		}
-
-		clog << "\rDone.\n";
 	}
+	
+	clog << "\rDone.                 \n";
 }
