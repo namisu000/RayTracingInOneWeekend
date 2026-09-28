@@ -10,16 +10,16 @@ public:
 
 	const point3& origin() const { return orig; } 
 	const point3& direction() const { return dir; }
-	//¾Õ const : ¹İÈ¯µÈ ÂüÁ¶·Î ¼öÁ¤ ºÒ°¡
-	//µÚ const : ÀÌ ÇÔ¼ö ¾È¿¡¼­ ¸â¹ö ¼öÁ¤ ºÒ°¡
+	//ì• const : ë°˜í™˜ëœ ì°¸ì¡°ë¡œ ìˆ˜ì • ë¶ˆê°€
+	//ë’¤ const : ì´ í•¨ìˆ˜ ì•ˆì—ì„œ ë©¤ë²„ ìˆ˜ì • ë¶ˆê°€
 
 	point3 at(double t) const {
 		return orig + t*dir;
 	}
 
 private:
-	point3 orig; //½ÃÀÛÀ§Ä¡ (A)
-	vec3 dir; //¹æÇâ (b)
+	point3 orig; //ì‹œì‘ìœ„ì¹˜ (A)
+	vec3 dir; //ë°©í–¥ (b)
 };
 
 #endif
