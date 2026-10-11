@@ -6,12 +6,12 @@
 using namespace std;
 
 double hit_sphere(const point3 &center, double radius, const ray &r)
-{
+{ // 반환 값이 double로 바뀜. 맞았는지가 아니라 어디서 맞았는지가 중요. 안 맞으면 -1
 	vec3 oc = center - r.origin();
-	auto a = dot(r.direction(), r.direction());
-	auto b = -2.0 * dot(r.direction(), oc);
-	auto c = dot(oc, oc) - radius * radius;
-	auto discriminant = b * b - 4 * a * c;
+	auto a = r.direction().length_squared();
+	auto h = dot(r.direction(), oc);
+	auto c = oc.length_squared() - radius * radius;
+	auto discriminant = h * h - a * c;
 
 	if (discriminant < 0)
 	{
@@ -19,10 +19,9 @@ double hit_sphere(const point3 &center, double radius, const ray &r)
 	}
 	else
 	{
-		return (-b - std::sqrt(discriminant)) / (2.0 * a);
+		return (h - std::sqrt(discriminant)) / a;
 	}
 }
-
 color ray_color(const ray &r)
 {
 	auto t = hit_sphere(point3(0, 0, -1), 0.5, r);
