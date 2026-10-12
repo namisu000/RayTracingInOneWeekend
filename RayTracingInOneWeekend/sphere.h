@@ -30,10 +30,10 @@ public:
                 return false;                         // 유효한 교차 없음
         }
 
-        rec.t = root;                           // 구한 t 갱신
-        rec.p = r.at(rec.t);                    // t를 넣어서 교차점 좌표 P를 구함
-        rec.normal = (rec.p - center) / radius; // P로 법선 계산
-
+        rec.t = root;                                    // 구한 t 갱신
+        rec.p = r.at(rec.t);                             // t를 넣어서 교차점 좌표 P를 구함
+        vec3 outward_normal = (rec.p - center) / radius; // P로 법선 계산
+        rec.set_face_normal(r, outward_normal);          // normal 및 face 계산
         return true;
     }
 
